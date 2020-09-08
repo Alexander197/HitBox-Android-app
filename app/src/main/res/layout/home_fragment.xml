@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:layout_above="@id/start_button">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/bag_settings_fragment"
+                android:name="com.example.boxproject11.BagSetting.BagSettingFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true" />
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/previous_training_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bag_settings_fragment"/>
+
+        </RelativeLayout>
+    </ScrollView>
+    <TextView
+        android:id="@+id/no_previous_trainings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="@string/no_previous_training"
+        style="@style/TextStyleDefault"/>
+<!--    android:layout_below="@id/bag_settings_fragment"-->
+<!--    android:layout_marginTop="100sp"-->
+    <Button
+        android:id="@+id/start_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/start_training"
+        style="@style/ButtonStyle" />
+
+</RelativeLayout>

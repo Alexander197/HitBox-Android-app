@@ -1,0 +1,64 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="HorizontalSeparatorStyle">
+        <item name="android:background">@drawable/separator_horizontal</item>
+        <item name="android:layout_marginTop">@dimen/separator_vertical_margin</item>
+        <item name="android:layout_marginBottom">@dimen/separator_vertical_margin</item>
+    </style>
+    <style name="VerticalSeparatorStyle">
+        <item name="android:background">@drawable/separator_vertical</item>
+        <item name="android:layout_marginTop">@dimen/separator_vertical_margin</item>
+        <item name="android:layout_marginBottom">@dimen/separator_vertical_margin</item>
+        <item name="android:layout_marginStart">@dimen/separator_horizontal_margin</item>
+        <item name="android:layout_marginEnd">@dimen/separator_horizontal_margin</item>
+    </style>
+
+    <style name="TextStyleLarge">
+        <item name="android:textSize">@dimen/text_size_large</item>
+        <item name="android:textColor">@color/text_color_0</item>
+    </style>
+    <style name="TextStyleTitle">
+        <item name="android:textSize">@dimen/text_size_title</item>
+        <item name="android:textColor">@color/text_color_1</item>
+    </style>
+    <style name="TextStyleSubtitle">
+        <item name="android:textSize">@dimen/text_size_subtitle</item>
+        <item name="android:textColor">@color/text_color_2</item>
+    </style>
+    <style name="TextStyleDefault">
+        <item name="android:textSize">@dimen/text_size_default</item>
+        <item name="android:textColor">@color/text_color_2</item>
+    </style>
+
+    <style name="HighPercent" parent="TextStyleDefault">
+        <item name="android:textColor">@color/high_percent_text</item>
+    </style>
+    <style name="LowPercent" parent="TextStyleDefault">
+        <item name="android:textColor">@color/low_percent_text</item>
+    </style>
+
+    <style name="ButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/text_size_button</item>
+        <item name="android:textColor">@drawable/button_text_color</item>
+        <item name="android:background">@drawable/button_shape</item>
+    </style>
+    <style name="CardStyleList">
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="android:layout_margin">@dimen/card_list_elevation</item>
+        <item name="cardElevation">@dimen/card_list_elevation</item>
+    </style>
+    <style name="CardStyleSection">
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="android:layout_margin">@dimen/card_section_elevation</item>
+        <item name="cardElevation">@dimen/card_section_elevation</item>
+    </style>
+
+</resources>

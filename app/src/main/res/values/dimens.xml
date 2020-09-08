@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="activity_padding">8sp</dimen>
+    <dimen name="element_vertical_padding">16sp</dimen>
+
+    <dimen name="element_horizontal_padding">8sp</dimen>
+    <dimen name="vertical_margin">8sp</dimen>
+    <dimen name="element_padding">8sp</dimen>
+
+    <dimen name="vertical_separator_width">1sp</dimen>
+    <dimen name="horizontal_separator_height">1sp</dimen>
+
+    <dimen name="text_size_large">40sp</dimen>
+    <dimen name="text_size_title">20sp</dimen>
+    <dimen name="text_size_subtitle">16sp</dimen>
+    <dimen name="text_size_default">14sp</dimen>
+    <dimen name="text_size_button">18sp</dimen>
+
+    <dimen name="separator_vertical_margin">4sp</dimen>
+    <dimen name="separator_horizontal_margin">4sp</dimen>
+
+    <dimen name="vertical_separator_height">40sp</dimen>
+    <dimen name="card_vertical_margin">16sp</dimen>
+    <dimen name="card_section_elevation">4sp</dimen>
+    <dimen name="card_corner_radius">4sp</dimen>
+    <dimen name="card_list_elevation">2sp</dimen>
+    <dimen name="button_corner_radius">10sp</dimen>
+    <dimen name="icon_padding">2sp</dimen>
+    <dimen name="section_margin">8sp</dimen>
+    <dimen name="element_margin">8sp</dimen>
+    <dimen name="text_space">4sp</dimen>
+</resources>

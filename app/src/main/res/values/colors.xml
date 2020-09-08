@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="actionBarIcons">#FFFFFF</color>
+
+    <color name="separatorStartColor">#CFCFCF</color>
+    <color name="separatorEndColor">#F7F7F7</color>
+
+    <color name="text_color_0">#555555</color>
+    <color name="text_color_1">#555555</color>
+    <color name="text_color_2">#777777</color>
+
+    <color name="activeButtonColor">#00A08D</color>
+    <color name="inactiveButtonColor">#CFCFCF</color>
+    <color name="active_button_text_color">#FFFFFF</color>
+    <color name="inactive_button_text_color">#8F8F8F</color>
+    <color name="info_panel_color">#39DDDDDD</color>
+
+    <color name="signal_level_high">#C3353535</color>
+    <color name="signal_level_low">#D09A9A9A</color>
+
+    <color name="high_percent_text">#4CAF50</color>
+    <color name="low_percent_text">#F44336</color>
+</resources>
