@@ -9,11 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_marginLeft="@dimen/card_list_elevation"
-        android:layout_marginRight="@dimen/card_list_elevation"
-        android:layout_marginBottom="@dimen/card_list_elevation"
-        app:cardElevation="0sp"
-        android:backgroundTint="@color/info_panel_color">
+        style="@style/CardStyleInfo">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

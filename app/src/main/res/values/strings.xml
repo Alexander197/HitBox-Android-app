@@ -33,8 +33,9 @@
     <string name="training_duration">Training duration</string>
     <string name="hits_per_series">Hits per series</string>
     <string name="number_of_series">Number of series</string>
-    <string name="strongest_hit">Strongest hit</string>
+    <string name="strongest_hit">MAX</string>
     <string name="average_impact_force">Average impact force</string>
+    <string name="average">AVERAGE</string>
     <string name="number_of_hits">Number of hits</string>
     <string name="device_not_found">Device not found</string>
     <string name="device_not_found_low">device not founded</string>
@@ -54,4 +55,8 @@
     <string name="percent">%1$.1f%%</string>
     <string name="highPercent">&#8593;%1$.1f%%</string>
     <string name="lowPercent">&#8595;%1$.1f%%</string>
+    <string name="back">Back</string>
+    <string name="date">"date: "</string>
+    <string name="title">"Title: "</string>
+    <string name="previous_training">Previous training</string>
 </resources>

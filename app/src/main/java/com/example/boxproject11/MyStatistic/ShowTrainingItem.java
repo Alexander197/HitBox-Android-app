@@ -2,7 +2,18 @@ package com.example.boxproject11.MyStatistic;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.ColorSpace;
+import android.graphics.LinearGradient;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.RectF;
+import android.graphics.Shader;
+import android.graphics.drawable.shapes.RoundRectShape;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,22 +25,29 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.boxproject11.BagSetting.Bag;
-import com.example.boxproject11.MyTraining.TrainingDataItem;
 import com.example.boxproject11.R;
-import com.example.boxproject11.data.TrainingDbHelper;
 import com.example.boxproject11.data.TrainingDbItem;
-import com.example.boxproject11.data.TrainingsDbContract;
+import com.github.mikephil.charting.animation.ChartAnimator;
 import com.github.mikephil.charting.animation.Easing;
+import com.github.mikephil.charting.buffer.BarBuffer;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.ValueFormatter;
+import com.github.mikephil.charting.interfaces.dataprovider.BarDataProvider;
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
+import com.github.mikephil.charting.model.GradientColor;
+import com.github.mikephil.charting.renderer.BarChartRenderer;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.github.mikephil.charting.utils.Transformer;
+import com.github.mikephil.charting.utils.Utils;
+import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.ArrayList;
 
 public class ShowTrainingItem extends DialogFragment {
+    private static final String TAG = "barChartTest";
     private final TrainingDbItem trainingDbItem;
     private final float[] average;
     private final int dbLength;
@@ -43,10 +61,17 @@ public class ShowTrainingItem extends DialogFragment {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         super.onCreateDialog(savedInstanceState);
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.DialogFragmentTheme);
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View root = inflater.inflate(R.layout.show_training_dialog, null);
         builder.setView(root);
+
+        builder.setNegativeButton(getString(R.string.back), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
 
         BarChart barChart = root.findViewById(R.id.bar_chart);
 
@@ -57,10 +82,10 @@ public class ShowTrainingItem extends DialogFragment {
             counter++;
         }
 
-        BarDataSet barDataSet = new BarDataSet(hits, getString(R.string.impact_force_distribution));
+        BarDataSet barDataSet = new BarDataSet(hits, getString(R.string.impact_force_distribution));;
         barDataSet.setHighlightEnabled(false);
         barDataSet.setDrawValues(false);
-        barDataSet.setColors(ColorTemplate.VORDIPLOM_COLORS);
+        barDataSet.setGradientColor(ContextCompat.getColor(getActivity(), R.color.barChartBottom), ContextCompat.getColor(getActivity(), R.color.barChartTop));
 
         BarData data = new BarData(barDataSet);
         barChart.setData(data);
@@ -69,11 +94,16 @@ public class ShowTrainingItem extends DialogFragment {
         barChart.getDescription().setEnabled(false);
 
 
+        RoundedBarChartRenderer renderer = new RoundedBarChartRenderer(barChart, barChart.getAnimator(), barChart.getViewPortHandler());
+        renderer.setRadius(5);
+        barChart.setRenderer(renderer);
+
         barChart.getAxisLeft().setGranularity(1f);
         barChart.getAxisLeft().setAxisMinValue(0f);
         barChart.getAxisRight().setGranularity(1f);
         barChart.getAxisRight().setAxisMinValue(0f);
 
+        barChart.getXAxis().setDrawGridLines(false);
         barChart.getXAxis().setAxisMinValue(0f);
         barChart.getXAxis().setAxisMaxValue(parseIntArray(trainingDbItem.barChart, "-").length);
         barChart.getXAxis().setValueFormatter(new ValueFormatter() {
@@ -143,6 +173,7 @@ public class ShowTrainingItem extends DialogFragment {
             }
             else if (percent == 0)
                 view.setText(getString(R.string.percent, percent));
+            view.setGravity(Gravity.END);
         }
     }
     private int[] parseIntArray(String str, String key){

@@ -19,5 +19,6 @@
         android:id="@+id/connection_info_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="-2sp"
         android:layout_below="@+id/recycler_view"/>
 </RelativeLayout>

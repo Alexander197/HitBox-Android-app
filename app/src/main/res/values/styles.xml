@@ -1,6 +1,6 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -22,19 +22,19 @@
 
     <style name="TextStyleLarge">
         <item name="android:textSize">@dimen/text_size_large</item>
-        <item name="android:textColor">@color/text_color_0</item>
+        <item name="android:textColor">@color/text_color_large</item>
     </style>
     <style name="TextStyleTitle">
         <item name="android:textSize">@dimen/text_size_title</item>
-        <item name="android:textColor">@color/text_color_1</item>
+        <item name="android:textColor">@color/text_color_title</item>
     </style>
     <style name="TextStyleSubtitle">
         <item name="android:textSize">@dimen/text_size_subtitle</item>
-        <item name="android:textColor">@color/text_color_2</item>
+        <item name="android:textColor">@color/text_color_standart</item>
     </style>
     <style name="TextStyleDefault">
         <item name="android:textSize">@dimen/text_size_default</item>
-        <item name="android:textColor">@color/text_color_2</item>
+        <item name="android:textColor">@color/text_color_standart</item>
     </style>
 
     <style name="HighPercent" parent="TextStyleDefault">
@@ -55,10 +55,30 @@
         <item name="android:layout_margin">@dimen/card_list_elevation</item>
         <item name="cardElevation">@dimen/card_list_elevation</item>
     </style>
+    <style name="CardStyleInfo">
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="android:layout_marginLeft">@dimen/card_list_elevation</item>
+        <item name="android:layout_marginRight">@dimen/card_list_elevation</item>
+        <item name="android:layout_marginBottom">@dimen/card_list_elevation</item>
+        <item name="cardElevation">0sp</item>
+        <item name="android:backgroundTint">@color/info_panel_color</item>
+    </style>
     <style name="CardStyleSection">
         <item name="cardCornerRadius">@dimen/card_corner_radius</item>
         <item name="android:layout_margin">@dimen/card_section_elevation</item>
         <item name="cardElevation">@dimen/card_section_elevation</item>
     </style>
+    <style name="CardStyleSubSection">
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="android:layout_margin">@dimen/card_subsection_elevation</item>
+        <item name="cardElevation">@dimen/card_subsection_elevation</item>
+    </style>
 
+    <style name="DialogFragmentTheme">
+        <item name="android:windowAnimationStyle">@style/DialogFragmentAnimation.Window</item>
+    </style>
+    <style name="DialogFragmentAnimation.Window" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/dialog_fragment_enter</item>
+        <item name="android:windowExitAnimation">@anim/dialog_fragment_exit</item>
+    </style>
 </resources>

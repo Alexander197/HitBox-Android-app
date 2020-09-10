@@ -1,5 +1,6 @@
 package com.example.boxproject11.MyStatistic;
 
+import android.animation.LayoutTransition;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,7 +9,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
@@ -51,22 +54,22 @@ public class StatisticFragment extends Fragment {
 
         recyclerView = root.findViewById(R.id.recycler_view);
         noStatisticText = root.findViewById(R.id.no_statistic_text);
-        Button addButton = root.findViewById(R.id.add_statistic);
-        addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                trainingDbHelper.insertTrainingItem(new TrainingDbItem("jjjjj", "01.01.1899", "1-2-3-4-5-6-7-8-9-10",20,10,420,4, 2,"20:55"));
-                trainingDbHelper.insertTrainingItem(new TrainingDbItem("jjjjj", "01.01.1899", "1-2-3-4-5-6-7-8-9-10",10,5,630,4, 2,"20:55"));
-//                Log.i(TAG, "Db length " + trainingDbHelper.dbLength());
-            }
-        });
-        Button averageButton = root.findViewById(R.id.get_average);
-        averageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.i(TAG, "average number of hits: " + trainingDbHelper.getColumnAverage(new String[] {TrainingsDbContract.COLUMN_NUMBER_OF_HITS})[0]);
-            }
-        });
+//        Button addButton = root.findViewById(R.id.add_statistic);
+//        addButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                trainingDbHelper.insertTrainingItem(new TrainingDbItem("jjjjj", "01.01.1899", "1-2-3-4-5-6-7-8-9-10",20,10,420,4, 2,"20:55"));
+//                trainingDbHelper.insertTrainingItem(new TrainingDbItem("jjjjj", "01.01.1899", "1-2-3-4-5-6-7-8-9-10",10,5,630,4, 2,"20:55"));
+////                Log.i(TAG, "Db length " + trainingDbHelper.dbLength());
+//            }
+//        });
+//        Button averageButton = root.findViewById(R.id.get_average);
+//        averageButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Log.i(TAG, "average number of hits: " + trainingDbHelper.getColumnAverage(new String[] {TrainingsDbContract.COLUMN_NUMBER_OF_HITS})[0]);
+//            }
+//        });
         beginStatisticList(trainingDbHelper.getTrainingDbList());
         Log.i(TAG, "Last database ID: " + trainingDbHelper.getLastId());
 
@@ -88,6 +91,7 @@ public class StatisticFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.action_bar_statistic_menu, menu);
         SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
+
         searchView.setQueryHint(getString(R.string.search_hint));
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

@@ -10,9 +10,8 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
-        app:cardCornerRadius="@dimen/card_corner_radius"
         android:foreground="?android:attr/selectableItemBackground"
-        android:layout_margin="@dimen/card_list_elevation" >
+        style="@style/CardStyleList">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

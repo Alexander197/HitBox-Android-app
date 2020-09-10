@@ -1,178 +1,96 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/card_section_elevation"
-        app:cardElevation="@dimen/card_section_elevation"
-        app:cardCornerRadius="@dimen/card_corner_radius">
+        style="@style/CardStyleSection">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/element_padding">
-            <TextView
-                android:id="@+id/training_title"
+            android:layout_height="wrap_content">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/TextStyleTitle"/>
-            <View
-                android:id="@+id/separator_1"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/horizontal_separator_height"
-                android:layout_below="@+id/training_title"
-                style="@style/HorizontalSeparatorStyle"/>
-            <com.github.mikephil.charting.charts.BarChart
-                android:id="@+id/bar_chart"
-                android:layout_width="match_parent"
-                android:layout_height="220sp"
-                android:layout_below="@+id/separator_1"/>
-            <TextView
-                android:id="@+id/training_date"
+                style="@style/CardStyleSubSection">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/element_padding">
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/previous_training"
+                        android:layout_centerHorizontal="true"
+                        style="@style/TextStyleSubtitle"/>
+                    <TextView
+                        android:id="@+id/training_title_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/title"
+                        style="@style/TextStyleDefault"/>
+                    <TextView
+                        android:id="@+id/training_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Title"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@+id/title"
+                        style="@style/TextStyleTitle"/>
+                    <TextView
+                        android:id="@+id/training_date_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/date"
+                        android:layout_below="@+id/training_title"
+                        android:layout_alignParentStart="true"
+                        style="@style/TextStyleDefault" />
+                    <TextView
+                        android:id="@+id/training_date"
+                        style="@style/TextStyleSubtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Date"
+                        android:layout_below="@+id/training_title"
+                        android:layout_alignParentEnd="true" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/bar_chart"
-                style = "@style/TextStyleSubtitle" />
-            <View
-                android:id="@+id/separator_2"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/horizontal_separator_height"
-                android:layout_below="@+id/training_date"
-                style="@style/HorizontalSeparatorStyle"/>
-            <LinearLayout
+                android:layout_below="@id/card_1"
+                style="@style/CardStyleSubSection">
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/bar_chart"
+                    android:layout_width="match_parent"
+                    android:layout_height="220sp"
+                    android:layout_marginTop="@dimen/element_margin"
+                    android:layout_marginBottom="@dimen/element_margin"
+                    android:padding="@dimen/element_padding"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/separator_2"
-                android:orientation="vertical" >
+                android:layout_below="@id/card_2"
+                style="@style/CardStyleSubSection">
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginTop="@dimen/vertical_margin">
-                    <TextView
-                        android:id="@+id/number_of_hits_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/number_of_hits"
-                        android:gravity="start"
-                        style = "@style/TextStyleDefault" />
-                    <TextView
-                        android:id="@+id/number_of_hits_number"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:gravity="end"
-                        android:layout_toEndOf="@id/number_of_hits_text"
-                        style = "@style/TextStyleDefault" />
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginTop="@dimen/vertical_margin">
-                    <TextView
-                        android:id="@+id/average_impact_force_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/average_impact_force"
-                        android:gravity="start"
-                        style = "@style/TextStyleDefault" />
-                    <TextView
-                        android:id="@+id/average_impact_force_number"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:gravity="end"
-                        android:layout_toEndOf="@id/average_impact_force_text"
-                        style = "@style/TextStyleDefault"  />
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginTop="@dimen/vertical_margin">
-                    <TextView
-                        android:id="@+id/strongest_hit_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/strongest_hit"
-                        android:gravity="start"
-                        style = "@style/TextStyleDefault" />
-                    <TextView
-                        android:id="@+id/strongest_hit_number"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:gravity="end"
-                        android:layout_toEndOf="@id/strongest_hit_text"
-                        style = "@style/TextStyleDefault" />
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginTop="@dimen/vertical_margin">
-                    <TextView
-                        android:id="@+id/number_of_series_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/number_of_series"
-                        android:gravity="start"
-                        style = "@style/TextStyleDefault" />
-                    <TextView
-                        android:id="@+id/number_of_series_number"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:gravity="end"
-                        android:layout_toEndOf="@id/number_of_series_text"
-                        style = "@style/TextStyleDefault" />
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginTop="@dimen/vertical_margin">
-                    <TextView
-                        android:id="@+id/hits_per_series_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/hits_per_series"
-                        android:gravity="start"
-                        style = "@style/TextStyleDefault" />
-                    <TextView
-                        android:id="@+id/hits_per_series_number"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:gravity="end"
-                        android:layout_toEndOf="@id/hits_per_series_text"
-                        style = "@style/TextStyleDefault" />
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginTop="@dimen/vertical_margin">
+                    android:layout_marginTop="@dimen/vertical_margin"
+                    android:padding="@dimen/element_padding">
                     <TextView
                         android:id="@+id/training_duration_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/training_duration"
                         android:gravity="start"
-                        style = "@style/TextStyleDefault" />
+                        style="@style/TextStyleSubtitle"/>
                     <TextView
                         android:id="@+id/training_duration_number"
                         android:layout_width="match_parent"
@@ -180,9 +98,219 @@
                         android:text="0"
                         android:gravity="end"
                         android:layout_toEndOf="@id/training_duration_text"
-                        style = "@style/TextStyleDefault" />
+                        style = "@style/TextStyleSubtitle" />
                 </RelativeLayout>
-            </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/card_3"
+                android:layout_marginTop="-2sp"
+                style="@style/CardStyleInfo" >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" >
+                        <!--                <androidx.cardview.widget.CardView-->
+                        <!--                    android:layout_width="match_parent"-->
+                        <!--                    android:layout_height="wrap_content"-->
+                        <!--                    app:cardCornerRadius="@dimen/card_corner_radius"-->
+                        <!--                    app:cardElevation="@dimen/card_list_elevation"-->
+                        <!--                    android:layout_margin="@dimen/card_list_elevation">-->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/vertical_margin"
+                            android:padding="@dimen/element_padding">
+
+                            <TextView
+                                android:id="@+id/number_of_hits_text"
+                                style="@style/TextStyleSubtitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:text="@string/number_of_hits" />
+
+                            <TextView
+                                android:id="@+id/number_of_hits_number"
+                                style="@style/TextStyleSubtitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_toStartOf="@+id/number_of_hits_percent"
+                                android:gravity="end"
+                                android:text="0" />
+                            <TextView
+                                android:id="@+id/number_of_hits_percent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignBottom="@+id/number_of_hits_number"
+                                android:text="0%"
+                                android:layout_marginStart="@dimen/large_text_space"
+                                style="@style/TextStyleDefault"/>
+                        </RelativeLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/horizontal_separator_height"
+                            style="@style/HorizontalSeparatorStyle"/>
+                        <!--                </androidx.cardview.widget.CardView>-->
+                        <!--                    <androidx.cardview.widget.CardView-->
+                        <!--                        android:layout_width="match_parent"-->
+                        <!--                        android:layout_height="wrap_content"-->
+                        <!--                        app:cardCornerRadius="@dimen/card_corner_radius"-->
+                        <!--                        app:cardElevation="@dimen/card_list_elevation"-->
+                        <!--                        android:layout_margin="@dimen/card_list_elevation">-->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/vertical_margin"
+                            android:padding="@dimen/element_padding">
+                            <TextView
+                                android:id="@+id/strongest_hit_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/strongest_hit"
+                                android:gravity="start"
+                                style="@style/TextStyleSubtitle" />
+                            <TextView
+                                android:id="@+id/strongest_hit_number"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:gravity="end"
+                                android:layout_toEndOf="@id/strongest_hit_text"
+                                android:layout_toStartOf="@+id/strongest_hit_percent"
+                                style="@style/TextStyleSubtitle"/>
+                            <TextView
+                                android:id="@+id/strongest_hit_percent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginStart="@dimen/large_text_space"
+                                android:text="0%"
+                                style="@style/TextStyleDefault"
+                                android:layout_alignBottom="@+id/strongest_hit_number"/>
+                        </RelativeLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/horizontal_separator_height"
+                            style="@style/HorizontalSeparatorStyle"/>
+                        <!--                </androidx.cardview.widget.CardView>-->
+                        <!--                    <androidx.cardview.widget.CardView-->
+                        <!--                        android:layout_width="match_parent"-->
+                        <!--                        android:layout_height="wrap_content"-->
+                        <!--                        app:cardCornerRadius="@dimen/card_corner_radius"-->
+                        <!--                        app:cardElevation="@dimen/card_list_elevation"-->
+                        <!--                        android:layout_margin="@dimen/card_list_elevation">-->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/vertical_margin"
+                            android:padding="@dimen/element_padding">
+                            <TextView
+                                android:id="@+id/average_impact_force_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/average"
+                                android:gravity="start"
+                                style="@style/TextStyleSubtitle"/>
+                            <TextView
+                                android:id="@+id/average_impact_force_number"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:gravity="end"
+                                android:layout_centerVertical="true"
+                                android:layout_toEndOf="@id/average_impact_force_text"
+                                android:layout_toStartOf="@+id/average_impact_force_percent"
+                                style="@style/TextStyleSubtitle"/>
+                            <TextView
+                                android:id="@+id/average_impact_force_percent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginStart="@dimen/large_text_space"
+                                android:text="0%"
+                                android:layout_alignBottom="@+id/average_impact_force_number"
+                                style="@style/TextStyleDefault" />
+                        </RelativeLayout>
+                        <!--                    </androidx.cardview.widget.CardView>-->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/horizontal_separator_height"
+                            style="@style/HorizontalSeparatorStyle"/>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/vertical_margin"
+                            android:padding="@dimen/element_padding">
+
+                            <TextView
+                                android:id="@+id/number_of_series_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:text="@string/number_of_series"
+                                style="@style/TextStyleSubtitle" />
+
+                            <TextView
+                                android:id="@+id/number_of_series_number"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:gravity="end"
+                                android:layout_toEndOf="@id/number_of_series_text"
+                                android:layout_toStartOf="@+id/number_of_series_percent"
+                                style = "@style/TextStyleSubtitle" />
+                            <TextView
+                                android:id="@+id/number_of_series_percent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginStart="@dimen/large_text_space"
+                                android:text="0%"
+                                android:layout_alignBottom="@+id/number_of_series_number"/>
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/horizontal_separator_height"
+                            style="@style/HorizontalSeparatorStyle"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/vertical_margin"
+                            android:padding="@dimen/element_padding">
+                            <TextView
+                                android:id="@+id/hits_per_series_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/hits_per_series"
+                                android:gravity="start"
+                                style="@style/TextStyleSubtitle"/>
+                            <TextView
+                                android:id="@+id/hits_per_series_number"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:gravity="end"
+                                android:layout_toEndOf="@id/hits_per_series_text"
+                                android:layout_toStartOf="@+id/hits_per_series_percent"
+                                style = "@style/TextStyleSubtitle" />
+                            <TextView
+                                android:id="@+id/hits_per_series_percent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginStart="@dimen/large_text_space"
+                                android:text="0%"
+                                android:layout_alignBottom="@+id/hits_per_series_number"/>
+                        </RelativeLayout>
+                    </LinearLayout>
+            </androidx.cardview.widget.CardView>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </RelativeLayout>
