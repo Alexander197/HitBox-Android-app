@@ -60,7 +60,7 @@ public class RealtimeLineChartActivity extends DemoBase implements
         // if disabled, scaling can be done on x- and y-axis separately
         chart.setPinchZoom(true);
 
-        // set an alternative background color
+        // set an alternative background_image color
         chart.setBackgroundColor(Color.LTGRAY);
 
         LineData data = new LineData();

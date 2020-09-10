@@ -8,17 +8,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/ButtonStyle"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/blur_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layoutManager="LinearLayoutManager"
-        android:overScrollMode="never"
-        android:layout_below="@+id/action_button" />
+        android:layout_below="@id/action_button">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="LinearLayoutManager"
+            android:overScrollMode="never" />
+    </eightbitlab.com.blurview.BlurView>
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/connection_info_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="-2sp"
-        android:layout_below="@+id/recycler_view"/>
+        android:layout_below="@+id/blur_view"/>
 </RelativeLayout>

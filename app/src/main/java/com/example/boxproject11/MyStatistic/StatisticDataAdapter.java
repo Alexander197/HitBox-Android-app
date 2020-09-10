@@ -30,6 +30,7 @@ public class StatisticDataAdapter extends RecyclerView.Adapter<StatisticDataAdap
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.statistic_list_item, parent, false);
+
         return new ViewHolder(view);
     }
 

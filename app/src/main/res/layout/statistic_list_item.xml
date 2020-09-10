@@ -4,39 +4,40 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        style="@style/CardStyleList">
-        <RelativeLayout
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/element_padding">
-            <ImageView
-                android:id="@+id/image_graph"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_statistic_graph_36dp"
-                android:padding="@dimen/element_padding"/>
-            <TextView
-                android:id="@+id/title_text"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:backgroundTint="@color/blur_background"
+            style="@style/CardStyleList">
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/image_graph"
-                android:text="Title"
-                style="@style/TextStyleTitle"/>
-            <TextView
-                android:id="@+id/date_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/image_graph"
-                android:layout_below="@+id/title_text"
-                android:text="sublitle"
-                style="@style/TextStyleSubtitle"/>
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+                android:padding="@dimen/element_padding">
+                <ImageView
+                    android:id="@+id/image_graph"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_statistic_graph_36dp"
+                    android:padding="@dimen/element_padding"/>
+                <TextView
+                    android:id="@+id/title_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/image_graph"
+                    android:text="Title"
+                    style="@style/TextStyleTitle"/>
+                <TextView
+                    android:id="@+id/date_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/image_graph"
+                    android:layout_below="@+id/title_text"
+                    android:text="subtitle"
+                    style="@style/TextStyleSubtitle"/>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
 </RelativeLayout>

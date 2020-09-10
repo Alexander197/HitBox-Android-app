@@ -5,6 +5,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/blur_background"
         style="@style/CardStyleSection">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -13,6 +14,7 @@
                 android:id="@+id/card_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/transparent_background"
                 style="@style/CardStyleSubSection">
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -64,6 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/card_1"
+                android:backgroundTint="@color/transparent_background"
                 style="@style/CardStyleSubSection">
                 <com.github.mikephil.charting.charts.BarChart
                     android:id="@+id/bar_chart"
@@ -78,6 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/card_2"
+                android:backgroundTint="@color/transparent_background"
                 style="@style/CardStyleSubSection">
                 <RelativeLayout
                     android:layout_width="match_parent"

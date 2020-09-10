@@ -59,4 +59,6 @@
     <string name="date">"date: "</string>
     <string name="title">"Title: "</string>
     <string name="previous_training">Previous training</string>
+    <string name="device_not_connected">Device not connected</string>
+    <string name="connect">Connect</string>
 </resources>

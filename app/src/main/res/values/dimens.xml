@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="activity_padding">8sp</dimen>
+    <dimen name="activity_padding">4sp</dimen>
     <dimen name="element_vertical_padding">16sp</dimen>
 
     <dimen name="element_horizontal_padding">8sp</dimen>
@@ -35,4 +35,5 @@
     <dimen name="text_space">4sp</dimen>
     <dimen name="percent_text_width">50sp</dimen>
     <dimen name="large_text_space">12sp</dimen>
+    <dimen name="text_padding">8sp</dimen>
 </resources>

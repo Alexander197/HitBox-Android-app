@@ -24,9 +24,9 @@ import com.xxmassdeveloper.mpchartexample.notimportant.DemoBase;
 import java.util.ArrayList;
 
 /**
- * This works by inverting the background and desired "fill" color. First, we draw the fill color
- * that we want between the lines as the actual background of the chart. Then, we fill the area
- * above the highest line and the area under the lowest line with the desired background color.
+ * This works by inverting the background_image and desired "fill" color. First, we draw the fill color
+ * that we want between the lines as the actual background_image of the chart. Then, we fill the area
+ * above the highest line and the area under the lowest line with the desired background_image color.
  *
  * This method makes it look like we filled the area between the lines, but really we are filling
  * the area OUTSIDE the lines!

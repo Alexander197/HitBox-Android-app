@@ -1,6 +1,7 @@
 package com.example.boxproject11.MyStatistic;
 
 import android.animation.LayoutTransition;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,6 +30,9 @@ import com.example.boxproject11.data.TrainingsDbContract;
 
 import java.util.List;
 
+import eightbitlab.com.blurview.BlurView;
+import eightbitlab.com.blurview.RenderScriptBlur;
+
 public class StatisticFragment extends Fragment {
 
     private final String TAG = "statisticTest";
@@ -36,6 +40,11 @@ public class StatisticFragment extends Fragment {
     private RecyclerView recyclerView;
     private StatisticDataAdapter statisticDataAdapter;
     private TextView noStatisticText;
+
+    float radius = 20f;
+    ViewGroup rootView;
+    Drawable windowBackground;
+    private BlurView blurView1;
 
     TrainingDbHelper trainingDbHelper;
 
@@ -70,7 +79,20 @@ public class StatisticFragment extends Fragment {
 //                Log.i(TAG, "average number of hits: " + trainingDbHelper.getColumnAverage(new String[] {TrainingsDbContract.COLUMN_NUMBER_OF_HITS})[0]);
 //            }
 //        });
+        View decorView = getActivity().getWindow().getDecorView();
+        rootView = (ViewGroup) decorView.findViewById(android.R.id.content);
+        windowBackground = decorView.getBackground();
+
         beginStatisticList(trainingDbHelper.getTrainingDbList());
+        blurView1 = root.findViewById(R.id.blur_view_1);
+        BlurView blurView2 = root.findViewById(R.id.blur_view_2);
+
+        blurView2.setupWith(rootView)
+                .setFrameClearDrawable(windowBackground)
+                .setBlurAlgorithm(new RenderScriptBlur(getActivity()))
+                .setBlurRadius(radius)
+                .setHasFixedTransformationMatrix(true);
+
         Log.i(TAG, "Last database ID: " + trainingDbHelper.getLastId());
 
         return root;
@@ -115,8 +137,14 @@ public class StatisticFragment extends Fragment {
             statisticDataAdapter = new StatisticDataAdapter(getActivity(), statisticListItems);
             recyclerView.setAdapter(statisticDataAdapter);
         }
-        if(statisticListItems.size() == 0)
+        if(statisticListItems.size() == 0){
             noStatisticText.setVisibility(View.VISIBLE);
+            blurView1.setupWith(rootView)
+                    .setFrameClearDrawable(windowBackground)
+                    .setBlurAlgorithm(new RenderScriptBlur(getActivity()))
+                    .setBlurRadius(radius)
+                    .setHasFixedTransformationMatrix(true);
+        }
         else noStatisticText.setVisibility(View.INVISIBLE);
         statisticDataAdapter.setOnStatisticItemClickListener(new StatisticDataAdapter.StatisticItemClickListener() {
             @Override

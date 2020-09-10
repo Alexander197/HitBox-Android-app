@@ -4,26 +4,31 @@
     <color name="colorPrimaryDark">#026873</color>
     <color name="colorAccent">#D91424</color>
     <color name="actionBarIcons">#F8F8F5</color>
+    <color name="blur_background">#D7FFFFFF</color>
+    <color name="blur_background_text">#C3FFFFFF</color>
+    <color name="transparent_background">#00FFFFFF</color>
 
     <color name="separatorStartColor">#CFCFCF</color>
     <color name="separatorEndColor">#F7F7F7</color>
 
     <color name="text_color_large">#555555</color>
     <color name="text_color_title">#555555</color>
-    <color name="text_color_standart">#777777</color>
+    <color name="text_color_standart">#5C5C5C</color>
 
     <color name="activeButtonColor">#049DBF</color>
     <color name="inactiveButtonColor">#D9D7C5</color>
     <color name="active_button_text_color">#FFFFFF</color>
     <color name="inactive_button_text_color">#8F8F8F</color>
-    <color name="info_panel_color">#39DDDDDD</color>
+    <color name="info_panel_color">#F3DCDCDC</color>
 
     <color name="signal_level_high">#C3353535</color>
     <color name="signal_level_low">#D09A9A9A</color>
 
+    <color name="color_accept">#4CAF50</color>
     <color name="high_percent_text">#4CAF50</color>
     <color name="low_percent_text">#F44336</color>
 
     <color name="barChartBottom">#F28705</color>
     <color name="barChartTop">#DFF1AC2B</color>
+    <color name="snackbar_background">#358395</color>
 </resources>

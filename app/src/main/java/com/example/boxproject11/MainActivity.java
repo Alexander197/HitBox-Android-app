@@ -3,6 +3,7 @@ package com.example.boxproject11;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
@@ -26,8 +27,10 @@ import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 
 
@@ -38,6 +41,7 @@ import com.example.boxproject11.MyTraining.TrainingService;
 import com.example.boxproject11.data.TrainingDbHelper;
 import com.example.boxproject11.data.TrainingDbItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -81,10 +85,10 @@ public class MainActivity extends AppCompatActivity {
         actionBar = getSupportActionBar();
         setActionBarTitle(getString(R.string.title_training));
 
-//        Bitmap original = BitmapFactory.decodeResource(getResources(), R.drawable.background);
-//        Bitmap blurred = BlurBuilder.blur(this, original);
-//        ImageView image = findViewById(R.id.image);
-//        image.setBackground(new BitmapDrawable(getResources(), blurred));
+        Bitmap original = BitmapFactory.decodeResource(getResources(), R.drawable.background_image);
+        Bitmap blurred = BlurBuilder.blur(this, original);
+        ImageView image = findViewById(R.id.image);
+        image.setBackground(new BitmapDrawable(getResources(), blurred));
 
         navigation();
 
@@ -95,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public static class BlurBuilder {
         private static final float BITMAP_SCALE = 0.4f;
-        private static final float BLUR_RADIUS = 7.5f;
+        private static final float BLUR_RADIUS = 7.0f;
 
         public static Bitmap blur(Context context, Bitmap image) {
             int width = Math.round(image.getWidth() * BITMAP_SCALE);
@@ -218,12 +222,29 @@ public class MainActivity extends AppCompatActivity {
     }
     public void startTraining(){
         if(trainingService != null){
-            if(trainingService.checkDeviceConnection() == BluetoothAdapter.STATE_CONNECTED){
+            int connectionState = trainingService.checkDeviceConnection();
+            if( connectionState == BluetoothAdapter.STATE_CONNECTED){
                 homeState = R.id.navigation_training;
                 navController.navigate(homeState);
                 Bag bag = new Bag(this);
                 BagSetting bagSetting = bag.getBagSettings();
                 trainingService.startTraining(bagSetting);
+            }
+            else {
+                View.OnClickListener onSnackBarClickListener = new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        View view = navigationView.findViewById(R.id.bottom_navigation_my_device);
+                        view.performClick();
+                    }
+                };
+                Snackbar snackbar = Snackbar.make(findViewById(R.id.coordinator), getString(R.string.device_not_connected),Snackbar.LENGTH_LONG);
+                snackbar.setAction(getString(R.string.connect), onSnackBarClickListener);
+                snackbar.getView().setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.snackbar_shape, null));
+//                ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams)snackbar.getView().getLayoutParams();
+//                //params.setMargins(12,12,12,12);
+//                snackbar.getView().setLayoutParams(params);
+                snackbar.show();
             }
         }
     }
@@ -259,6 +280,27 @@ public class MainActivity extends AppCompatActivity {
                 }
         }
     };
+
+//    @Override
+//    public void onBackPressed() {
+//        //super.onBackPressed();
+//        Intent startMain = new Intent(Intent.ACTION_MAIN);
+//        startMain.addCategory(Intent.CATEGORY_HOME);
+//        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        startActivity(startMain);
+//    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Intent startMain = new Intent(Intent.ACTION_MAIN);
+            startMain.addCategory(Intent.CATEGORY_HOME);
+            startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(startMain);
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
     @Override
     public void onResume() {
         super.onResume();

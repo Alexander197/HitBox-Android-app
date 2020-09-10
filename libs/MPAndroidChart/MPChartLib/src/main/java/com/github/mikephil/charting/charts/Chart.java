@@ -1344,7 +1344,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     }
 
     /**
-     * paint for the grid background (only line and barchart)
+     * paint for the grid background_image (only line and barchart)
      */
     public static final int PAINT_GRID_BACKGROUND = 4;
 
@@ -1515,13 +1515,13 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
         Bitmap returnedBitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.RGB_565);
         // Bind a canvas to it
         Canvas canvas = new Canvas(returnedBitmap);
-        // Get the view's background
+        // Get the view's background_image
         Drawable bgDrawable = getBackground();
         if (bgDrawable != null)
-            // has background drawable, then draw it on the canvas
+            // has background_image drawable, then draw it on the canvas
             bgDrawable.draw(canvas);
         else
-            // does not have background drawable, then draw white background on
+            // does not have background_image drawable, then draw white background_image on
             // the canvas
             canvas.drawColor(Color.WHITE);
         // draw the view on the canvas

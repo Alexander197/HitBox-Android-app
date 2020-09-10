@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.graphics.drawable.Drawable;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
@@ -33,6 +34,9 @@ import com.example.boxproject11.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import eightbitlab.com.blurview.BlurView;
+import eightbitlab.com.blurview.RenderScriptBlur;
+
 import static com.example.boxproject11.BluetoothLeService.*;
 
 public class MyDeviceFragment extends Fragment{
@@ -42,6 +46,7 @@ public class MyDeviceFragment extends Fragment{
     private DeviceList deviceList;
     private TrainingService trainingService;
     private MyDevice myDevice;
+    private RecyclerView recyclerView;
 
     private Button actionButton;
     private ConnectionInfoFragment fragment = new ConnectionInfoFragment();
@@ -75,11 +80,24 @@ public class MyDeviceFragment extends Fragment{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.my_device_fragment, container, false);
         myDevice = new MyDevice(getActivity());
+        recyclerView = root.findViewById(R.id.recycler_view);
         actionButton = root.findViewById(R.id.action_button);
 
-        deviceList = new DeviceList(root, getActivity());
+        deviceList = new DeviceList(getActivity());
         deviceList.beginList(MyDevice.MY_DEVICE_NAME, MyDevice.CONNECTED);
         setDeviceItem(getArguments());
+
+        float radius = 20f;
+        View decorView = getActivity().getWindow().getDecorView();
+        ViewGroup rootView = (ViewGroup) decorView.findViewById(android.R.id.content);
+        Drawable windowBackground = decorView.getBackground();
+        BlurView blurView = root.findViewById(R.id.blur_view);
+
+        blurView.setupWith(rootView)
+                .setFrameClearDrawable(windowBackground)
+                .setBlurAlgorithm(new RenderScriptBlur(getActivity()))
+                .setBlurRadius(radius)
+                .setHasFixedTransformationMatrix(true);
 
         deviceList.getAdapter().setOnItemClickListener(new MyDeviceDataAdapter.DeviceItemClickListener() {
             @Override
@@ -152,19 +170,15 @@ public class MyDeviceFragment extends Fragment{
         return root;
     }
 
-    private static class DeviceList {
-        private View view;
+    private class DeviceList {
         private Context context;
         private List<MyDeviceListItem> devices;
         private MyDeviceDataAdapter adapter;
-        private RecyclerView recyclerView;
 
-        private DeviceList(View view, Context context){
-            this.view = view;
+        private DeviceList(Context context){
             this.context = context;
         }
         public void beginList(String deviceName, int state){
-            recyclerView = view.findViewById(R.id.recycler_view);
             devices = new ArrayList<>();
             devices.add(new MyDeviceListItem(deviceName,state));
             adapter = new MyDeviceDataAdapter(context, devices);

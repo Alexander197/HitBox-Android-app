@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -27,6 +28,9 @@ import com.example.boxproject11.R;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
+import eightbitlab.com.blurview.BlurView;
+import eightbitlab.com.blurview.RenderScriptBlur;
 
 import static com.example.boxproject11.BluetoothLeService.ACTION_GATT_CONNECTED;
 import static com.example.boxproject11.BluetoothLeService.ACTION_GATT_DISCONNECTED;

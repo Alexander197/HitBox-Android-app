@@ -85,14 +85,14 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
     private boolean mScaleYEnabled = true;
 
     /**
-     * paint object for the (by default) lightgrey background of the grid
+     * paint object for the (by default) lightgrey background_image of the grid
      */
     protected Paint mGridBackgroundPaint;
 
     protected Paint mBorderPaint;
 
     /**
-     * flag indicating if the grid background should be drawn or not
+     * flag indicating if the grid background_image should be drawn or not
      */
     protected boolean mDrawGridBackground = false;
 
@@ -538,13 +538,13 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
     }
 
     /**
-     * draws the grid background
+     * draws the grid background_image
      */
     protected void drawGridBackground(Canvas c) {
 
         if (mDrawGridBackground) {
 
-            // draw the grid background
+            // draw the grid background_image
             c.drawRect(mViewPortHandler.getContentRect(), mGridBackgroundPaint);
         }
 
@@ -1083,7 +1083,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
     }
 
     /**
-     * Sets the color for the background of the chart-drawing area (everything
+     * Sets the color for the background_image of the chart-drawing area (everything
      * behind the grid lines).
      *
      * @param color
@@ -1195,7 +1195,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
     }
 
     /**
-     * set this to true to draw the grid background, false if not
+     * set this to true to draw the grid background_image, false if not
      *
      * @param enabled
      */

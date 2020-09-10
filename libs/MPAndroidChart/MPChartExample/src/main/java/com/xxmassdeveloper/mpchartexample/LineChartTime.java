@@ -69,7 +69,7 @@ public class LineChartTime extends DemoBase implements OnSeekBarChangeListener {
         chart.setDrawGridBackground(false);
         chart.setHighlightPerDragEnabled(true);
 
-        // set an alternative background color
+        // set an alternative background_image color
         chart.setBackgroundColor(Color.WHITE);
         chart.setViewPortOffsets(0f, 0f, 0f, 0f);
 

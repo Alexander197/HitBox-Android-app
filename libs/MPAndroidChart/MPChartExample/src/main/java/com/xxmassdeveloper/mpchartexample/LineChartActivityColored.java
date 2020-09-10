@@ -66,7 +66,7 @@ public class LineChartActivityColored extends DemoBase {
 
         // chart.setDrawHorizontalGrid(false);
         //
-        // enable / disable grid background
+        // enable / disable grid background_image
         chart.setDrawGridBackground(false);
 //        chart.getRenderer().getGridPaint().setGridColor(Color.WHITE & 0x70FFFFFF);
 

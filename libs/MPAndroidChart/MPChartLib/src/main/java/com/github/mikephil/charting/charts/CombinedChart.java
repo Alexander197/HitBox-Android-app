@@ -219,7 +219,7 @@ public class CombinedChart extends BarLineChartBase<CombinedData> implements Com
     /**
      * Sets the order in which the provided data objects should be drawn. The
      * earlier you place them in the provided array, the further they will be in
-     * the background. e.g. if you provide new DrawOrer[] { DrawOrder.BAR,
+     * the background_image. e.g. if you provide new DrawOrer[] { DrawOrder.BAR,
      * DrawOrder.LINE }, the bars will be drawn behind the lines.
      *
      * @param order

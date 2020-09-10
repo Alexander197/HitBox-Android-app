@@ -11,6 +11,7 @@
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
+        android:backgroundTint="@color/blur_background"
         style="@style/CardStyleList">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -47,6 +48,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_baseline_done_36"
                 android:visibility="invisible"
+                app:tint="@color/color_accept"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"/>
             <ImageView

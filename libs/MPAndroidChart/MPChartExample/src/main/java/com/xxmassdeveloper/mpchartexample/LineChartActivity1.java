@@ -77,7 +77,7 @@ public class LineChartActivity1 extends DemoBase implements OnSeekBarChangeListe
         {   // // Chart Style // //
             chart = findViewById(R.id.chart1);
 
-            // background color
+            // background_image color
             chart.setBackgroundColor(Color.WHITE);
 
             // disable description text

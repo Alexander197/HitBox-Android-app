@@ -85,7 +85,7 @@ public class LineChartActivity2 extends DemoBase implements OnSeekBarChangeListe
         // if disabled, scaling can be done on x- and y-axis separately
         chart.setPinchZoom(true);
 
-        // set an alternative background color
+        // set an alternative background_image color
         chart.setBackgroundColor(Color.LTGRAY);
 
         // add data

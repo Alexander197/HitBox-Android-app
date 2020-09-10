@@ -4,19 +4,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <TextView
-        android:id="@+id/no_statistic_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/no_saved_statistics"
-        android:layout_centerInParent="true"
-        android:visibility="invisible"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        app:layoutManager="LinearLayoutManager" />
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true">
+        <eightbitlab.com.blurview.BlurView
+            android:id="@+id/blur_view_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="36sp">
+            <TextView
+                android:id="@+id/no_statistic_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/no_saved_statistics"
+                android:visibility="invisible"
+                android:gravity="center"
+                android:background="@color/blur_background_text"
+                android:padding="@dimen/text_padding"
+                style="@style/TextStyleDefault"/>
+        </eightbitlab.com.blurview.BlurView>
+    </RelativeLayout>
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/blur_view_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            app:layoutManager="LinearLayoutManager" />
+    </eightbitlab.com.blurview.BlurView>
 <!--    <Button-->
 <!--        android:id="@+id/add_statistic"-->
 <!--        android:layout_width="match_parent"-->

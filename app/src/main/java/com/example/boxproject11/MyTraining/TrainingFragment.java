@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
@@ -21,6 +22,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.boxproject11.R;
+
+import eightbitlab.com.blurview.BlurView;
+import eightbitlab.com.blurview.RenderScriptBlur;
 
 import static com.example.boxproject11.BluetoothLeService.EXTRA_DATA;
 import static com.example.boxproject11.MyTraining.TrainingService.TIMER_TICK;
@@ -56,6 +60,25 @@ public class TrainingFragment extends Fragment {
         numberOfHitsNumber = root.findViewById(R.id.number_of_hits_number);
         strongestHitNumber = root.findViewById(R.id.strongest_hit_number);
         timer = root.findViewById(R.id.timer);
+
+        float radius = 20f;
+        View decorView = getActivity().getWindow().getDecorView();
+        ViewGroup rootView = (ViewGroup) decorView.findViewById(android.R.id.content);
+        Drawable windowBackground = decorView.getBackground();
+        BlurView blurView1 = root.findViewById(R.id.blur_view_1);
+        BlurView blurView2 = root.findViewById(R.id.blur_view_2);
+
+        blurView1.setupWith(rootView)
+                .setFrameClearDrawable(windowBackground)
+                .setBlurAlgorithm(new RenderScriptBlur(getActivity()))
+                .setBlurRadius(radius)
+                .setHasFixedTransformationMatrix(true);
+        blurView2.setupWith(rootView)
+                .setFrameClearDrawable(windowBackground)
+                .setBlurAlgorithm(new RenderScriptBlur(getActivity()))
+                .setBlurRadius(radius)
+                .setHasFixedTransformationMatrix(true);
+
         Button stopButton = root.findViewById(R.id.stop_button);
         stopButton.setOnClickListener(new View.OnClickListener() {
             @Override
