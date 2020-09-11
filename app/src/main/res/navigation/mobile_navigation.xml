@@ -7,23 +7,23 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.boxproject11.fragments.HomeFragment"
+        android:name="com.boxproject.hitbox.Home.HomeFragment"
         android:label="@string/title_training"
         tools:layout="@layout/home_fragment"
         />
     <fragment
         android:id="@+id/navigation_training"
-        android:name="com.example.boxproject11.MyTraining.TrainingFragment"
+        android:name="com.boxproject.hitbox.MyTraining.TrainingFragment"
         android:label="@string/title_training"
         tools:layout="@layout/training_fragment"/>
     <fragment
         android:id="@+id/navigation_my_device"
-        android:name="com.example.boxproject11.MyDevice.MyDeviceFragment"
+        android:name="com.boxproject.hitbox.MyDevice.MyDeviceFragment"
         android:label="@string/title_my_device"
         tools:layout="@layout/my_device_fragment"/>
     <fragment
         android:id="@+id/navigation_statistic"
-        android:name="com.example.boxproject11.MyStatistic.StatisticFragment"
+        android:name="com.boxproject.hitbox.MyStatistic.StatisticFragment"
         android:label="@string/title_statistic"
         tools:layout="@layout/statistic_fragment"/>
 </navigation>

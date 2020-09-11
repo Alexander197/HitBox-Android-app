@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.boxproject11">
+    package="com.boxproject.hitbox">
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.boxproject11.MainActivity"
+        <activity android:name="com.boxproject.hitbox.MainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
@@ -23,8 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name="com.example.boxproject11.BluetoothLeService"/>
-        <service android:name="com.example.boxproject11.MyTraining.TrainingService"/>
+        <service android:name="com.boxproject.hitbox.BluetoothLeService"/>
+        <service android:name="com.boxproject.hitbox.MyTraining.TrainingService"/>
     </application>
 
 </manifest>

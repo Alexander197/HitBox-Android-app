@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Box Project 1.1</string>
+    <string name="app_name">HitBox</string>
     <string name="bag_setting_kg_values">%1$dkg</string>
     <string name="training_item_float_kg_values">%1$.1f kg</string>
     <string name="training_item_integer_kg_values">%1$d kg</string>
