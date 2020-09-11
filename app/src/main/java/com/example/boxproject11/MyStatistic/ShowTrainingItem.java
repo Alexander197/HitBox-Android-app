@@ -85,6 +85,8 @@ public class ShowTrainingItem extends DialogFragment {
         BarDataSet barDataSet = new BarDataSet(hits, getString(R.string.impact_force_distribution));;
         barDataSet.setHighlightEnabled(false);
         barDataSet.setDrawValues(false);
+
+        barDataSet.setColor(ContextCompat.getColor(getActivity(), R.color.barChartBottom));
         barDataSet.setGradientColor(ContextCompat.getColor(getActivity(), R.color.barChartBottom), ContextCompat.getColor(getActivity(), R.color.barChartTop));
 
         BarData data = new BarData(barDataSet);

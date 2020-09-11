@@ -4,9 +4,12 @@
     <color name="colorPrimaryDark">#026873</color>
     <color name="colorAccent">#D91424</color>
     <color name="actionBarIcons">#F8F8F5</color>
-    <color name="blur_background">#D7FFFFFF</color>
+    <color name="blur_background">#CDFFFFFF</color>
     <color name="blur_background_text">#C3FFFFFF</color>
     <color name="transparent_background">#00FFFFFF</color>
+
+    <color name="background_top">#047A8A</color>
+    <color name="background_bottom">#00FFFFFF</color>
 
     <color name="separatorStartColor">#CFCFCF</color>
     <color name="separatorEndColor">#F7F7F7</color>

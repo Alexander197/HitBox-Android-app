@@ -83,12 +83,13 @@ public class MainActivity extends AppCompatActivity {
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         navigationView = findViewById(R.id.nav_view);
         actionBar = getSupportActionBar();
+        //actionBar.setElevation(10);
         setActionBarTitle(getString(R.string.title_training));
 
-        Bitmap original = BitmapFactory.decodeResource(getResources(), R.drawable.background_image);
-        Bitmap blurred = BlurBuilder.blur(this, original);
-        ImageView image = findViewById(R.id.image);
-        image.setBackground(new BitmapDrawable(getResources(), blurred));
+//        Bitmap original = BitmapFactory.decodeResource(getResources(), R.drawable.background_image);
+//        Bitmap blurred = BlurBuilder.blur(this, original);
+//        ImageView image = findViewById(R.id.image);
+//        image.setBackground(new BitmapDrawable(getResources(), blurred));
 
         navigation();
 

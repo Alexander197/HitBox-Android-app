@@ -68,7 +68,6 @@ public class HomeFragment extends Fragment {
                     .setHasFixedTransformationMatrix(true);
         }
 
-
         Button startTrainingButton = root.findViewById(R.id.start_button);
         startTrainingButton.setOnClickListener(new View.OnClickListener() {
             @Override

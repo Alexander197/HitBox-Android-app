@@ -1,5 +1,7 @@
 package com.example.boxproject11.data;
 
+import android.graphics.Color;
+import android.graphics.ColorSpace;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -18,6 +20,8 @@ import com.example.boxproject11.MyStatistic.RoundedBarChartRenderer;
 import com.example.boxproject11.R;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.Chart;
+import com.github.mikephil.charting.components.LegendEntry;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
@@ -57,6 +61,8 @@ public class TrainingItemFragment extends Fragment {
         BarDataSet barDataSet = new BarDataSet(hits, getString(R.string.impact_force_distribution));
         barDataSet.setHighlightEnabled(false);
         barDataSet.setDrawValues(false);
+
+        barDataSet.setColor(ContextCompat.getColor(getActivity(), R.color.barChartBottom));
         barDataSet.setGradientColor(ContextCompat.getColor(getActivity(), R.color.barChartBottom), ContextCompat.getColor(getActivity(), R.color.barChartTop));
 
         BarData data = new BarData(barDataSet);

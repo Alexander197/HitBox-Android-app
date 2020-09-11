@@ -23,7 +23,7 @@
     <dimen name="vertical_separator_height">40sp</dimen>
 
     <dimen name="card_vertical_margin">16sp</dimen>
-    <dimen name="card_section_elevation">4sp</dimen>
+    <dimen name="card_section_elevation">2sp</dimen>
     <dimen name="card_subsection_elevation">1sp</dimen>
     <dimen name="card_corner_radius">4sp</dimen>
     <dimen name="card_list_elevation">2sp</dimen>
