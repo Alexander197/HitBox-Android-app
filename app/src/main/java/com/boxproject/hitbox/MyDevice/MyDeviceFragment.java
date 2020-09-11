@@ -144,7 +144,7 @@ public class MyDeviceFragment extends Fragment{
         actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(trainingService != null) {
+                if(trainingService != null && checkAccessLocation()) {
                     trainingService.startScanning(5000);
                     setDeviceItem();
                     trainingService.setOnScanDeviceListener(new BluetoothLeService.ScanDeviceListener() {
@@ -219,6 +219,7 @@ public class MyDeviceFragment extends Fragment{
         else actionButton.setText(getString(R.string.find_device));
     }
     private final int ACTION_LOCATION_SOURCE_SETTINGS_REQUEST_CODE = 2;
+
     private boolean checkAccessLocation(){
         boolean network_enable = ((LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE)).isProviderEnabled(LocationManager.NETWORK_PROVIDER);
         boolean gps_enable = ((LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE)).isProviderEnabled(LocationManager.GPS_PROVIDER);

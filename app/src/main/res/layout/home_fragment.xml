@@ -8,7 +8,7 @@
         android:layout_height="match_parent"
         android:layout_above="@id/relative_layout">
         <eightbitlab.com.blurview.BlurView
-            android:id="@+id/blur_view_1"
+            android:id="@+id/blur_no_statistic_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -23,7 +23,7 @@
                     android:backgroundTint="@color/blur_background">
                     <androidx.fragment.app.FragmentContainerView
                         android:id="@+id/bag_settings_fragment"
-                        android:name="com.example.boxproject11.BagSetting.BagSettingFragment"
+                        android:name="com.boxproject.hitbox.BagSetting.BagSettingFragment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true" />
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true">
         <eightbitlab.com.blurview.BlurView
-            android:id="@id/blur_view_2"
+            android:id="@id/blur_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="36sp">

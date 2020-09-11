@@ -35,11 +35,7 @@ public class StatisticFragment extends Fragment {
     private RecyclerView recyclerView;
     private StatisticDataAdapter statisticDataAdapter;
     private TextView noStatisticText;
-
-    float radius = 20f;
-    ViewGroup rootView;
-    Drawable windowBackground;
-    private BlurView blurView1;
+    private BlurView blurNoStatisticText;
 
     TrainingDbHelper trainingDbHelper;
 
@@ -74,19 +70,25 @@ public class StatisticFragment extends Fragment {
 //                Log.i(TAG, "average number of hits: " + trainingDbHelper.getColumnAverage(new String[] {TrainingsDbContract.COLUMN_NUMBER_OF_HITS})[0]);
 //            }
 //        });
+        float radius = 20f;
         View decorView = getActivity().getWindow().getDecorView();
-        rootView = (ViewGroup) decorView.findViewById(android.R.id.content);
-        windowBackground = decorView.getBackground();
+        ViewGroup rootView = (ViewGroup) decorView.findViewById(android.R.id.content);
+        Drawable windowBackground = decorView.getBackground();
+        BlurView blurRecyclerView = root.findViewById(R.id.blur_recycler_view);
+        blurNoStatisticText = root.findViewById(R.id.blur_no_statistic_text);
 
-        beginStatisticList(trainingDbHelper.getTrainingDbList());
-        blurView1 = root.findViewById(R.id.blur_view_1);
-        BlurView blurView2 = root.findViewById(R.id.blur_view_2);
-
-        blurView2.setupWith(rootView)
+        blurRecyclerView.setupWith(rootView)
                 .setFrameClearDrawable(windowBackground)
                 .setBlurAlgorithm(new RenderScriptBlur(getActivity()))
                 .setBlurRadius(radius)
                 .setHasFixedTransformationMatrix(true);
+        blurNoStatisticText.setupWith(rootView)
+                .setFrameClearDrawable(windowBackground)
+                .setBlurAlgorithm(new RenderScriptBlur(getActivity()))
+                .setBlurRadius(radius)
+                .setHasFixedTransformationMatrix(true);
+
+        beginStatisticList(trainingDbHelper.getTrainingDbList());
 
         Log.i(TAG, "Last database ID: " + trainingDbHelper.getLastId());
 
@@ -134,13 +136,12 @@ public class StatisticFragment extends Fragment {
         }
         if(statisticListItems.size() == 0){
             noStatisticText.setVisibility(View.VISIBLE);
-            blurView1.setupWith(rootView)
-                    .setFrameClearDrawable(windowBackground)
-                    .setBlurAlgorithm(new RenderScriptBlur(getActivity()))
-                    .setBlurRadius(radius)
-                    .setHasFixedTransformationMatrix(true);
+            blurNoStatisticText.setBlurEnabled(true);
         }
-        else noStatisticText.setVisibility(View.INVISIBLE);
+        else {
+            noStatisticText.setVisibility(View.INVISIBLE);
+            blurNoStatisticText.setBlurEnabled(false);
+        }
         statisticDataAdapter.setOnStatisticItemClickListener(new StatisticDataAdapter.StatisticItemClickListener() {
             @Override
             public void onClick(int position, View view, String title, int id) {
@@ -206,9 +207,14 @@ public class StatisticFragment extends Fragment {
             statisticDataAdapter.changeStatisticList(statisticListItems);
             statisticDataAdapter.notifyDataSetChanged();
         }
-        if(statisticListItems.size() == 0)
+        if(statisticListItems.size() == 0){
             noStatisticText.setVisibility(View.VISIBLE);
-        else noStatisticText.setVisibility(View.INVISIBLE);
+            blurNoStatisticText.setBlurEnabled(true);
+        }
+        else {
+            noStatisticText.setVisibility(View.INVISIBLE);
+            blurNoStatisticText.setBlurEnabled(false);
+        }
 
     }
 }

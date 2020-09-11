@@ -65,8 +65,8 @@ public class TrainingFragment extends Fragment {
         View decorView = getActivity().getWindow().getDecorView();
         ViewGroup rootView = (ViewGroup) decorView.findViewById(android.R.id.content);
         Drawable windowBackground = decorView.getBackground();
-        BlurView blurView1 = root.findViewById(R.id.blur_view_1);
-        BlurView blurView2 = root.findViewById(R.id.blur_view_2);
+        BlurView blurView1 = root.findViewById(R.id.blur_no_statistic_text);
+        BlurView blurView2 = root.findViewById(R.id.blur_recycler_view);
 
         blurView1.setupWith(rootView)
                 .setFrameClearDrawable(windowBackground)

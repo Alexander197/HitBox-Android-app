@@ -9,7 +9,7 @@
             android:layout_above="@+id/stop_button"
             android:padding="@dimen/activity_padding">
             <eightbitlab.com.blurview.BlurView
-                android:id="@+id/blur_view_1"
+                android:id="@+id/blur_no_statistic_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <RelativeLayout
@@ -124,9 +124,9 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/blur_view_1">
+                android:layout_below="@+id/blur_no_statistic_text">
                 <eightbitlab.com.blurview.BlurView
-                    android:id="@+id/blur_view_2"
+                    android:id="@+id/blur_recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true">
