@@ -128,10 +128,10 @@ public class MyDeviceFragment extends Fragment{
                                 if(!trainingService.trainingState){
                                     if(trainingService.checkDeviceConnection() == BluetoothAdapter.STATE_CONNECTED){
                                         trainingService.disconnectBleDevice();
-                                        myDevice.removeDeviceMacAddress();
-                                        Toast.makeText(getActivity(), getString(R.string.device_deleted), Toast.LENGTH_SHORT).show();
-                                        setDeviceItem();
                                     }
+                                    myDevice.removeDeviceMacAddress();
+                                    Toast.makeText(getActivity(), getString(R.string.device_deleted), Toast.LENGTH_SHORT).show();
+                                    setDeviceItem();
                                 }
                                 else Toast.makeText(getActivity(), getString(R.string.finish_your_training_first), Toast.LENGTH_SHORT).show();
                             }
