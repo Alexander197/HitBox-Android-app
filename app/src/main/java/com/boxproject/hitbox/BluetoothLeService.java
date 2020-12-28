@@ -76,6 +76,7 @@ public class BluetoothLeService extends Service {
     private int batteryLevel = -1;
 
     private final Handler handler = new Handler();
+    private final Handler handler1 = new Handler();
 
     @Nullable
     @Override
@@ -235,6 +236,13 @@ public class BluetoothLeService extends Service {
             Log.i(TAG, "onConnectionStateChange: " + newState);
             if(newState == BluetoothProfile.STATE_CONNECTED) {
                 mBluetoothGatt.discoverServices();
+                handler1.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        connectionState = BluetoothAdapter.STATE_CONNECTED;
+                        broadcastUpdate(ACTION_GATT_CONNECTED);
+                    }
+                }, 3000);
                 //Log.i(TAG,"Device connected. Discover services status: " + mBluetoothGatt.discoverServices());
             }
             else if(newState == BluetoothProfile.STATE_DISCONNECTED) {
@@ -276,14 +284,10 @@ public class BluetoothLeService extends Service {
                     Log.i(TAG, "Battery level: " + batteryLevel);
                     break;
                 case MyDevice.TRAINING_DATA_CHAR_UUID:
-                    if(receivedData.length == 1 && receivedData[0] == 1) {
-                        connectionState = BluetoothAdapter.STATE_CONNECTED;
-                        broadcastUpdate(ACTION_GATT_CONNECTED);
-                    }
-                    else if(receivedData.length == 5){
+                   if(receivedData.length == 5){
                         int[] ints = {(int)receivedData[0], byteToInt(receivedData[1], receivedData[2]), byteToInt(receivedData[3] ,receivedData[4])};
                         broadcastUpdate(ACTION_DATA_AVAILABLE, ints);
-                    }
+                   }
 //                    switch (receivedData.length){
 //                        case 5:
 //                            if(receivedData[0] == 1)
