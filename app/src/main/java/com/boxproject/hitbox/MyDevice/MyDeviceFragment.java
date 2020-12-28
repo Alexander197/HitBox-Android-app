@@ -49,6 +49,11 @@ public class MyDeviceFragment extends Fragment{
     private RecyclerView recyclerView;
 
     private Button actionButton;
+
+    private Button calButton1;
+    private Button calButton2;
+    private Button calButton3;
+
     private ConnectionInfoFragment fragment = new ConnectionInfoFragment();
     FragmentTransaction transaction;
     Handler handler = new Handler();
@@ -82,6 +87,11 @@ public class MyDeviceFragment extends Fragment{
         myDevice = new MyDevice(getActivity());
         recyclerView = root.findViewById(R.id.recycler_view);
         actionButton = root.findViewById(R.id.action_button);
+
+        calButton1 = root.findViewById((R.id.cal_button_1));
+        calButton2 = root.findViewById((R.id.cal_button_2));
+        calButton3 = root.findViewById((R.id.cal_button_3));
+
 
         deviceList = new DeviceList(getActivity());
         deviceList.beginList(MyDevice.MY_DEVICE_NAME, MyDevice.CONNECTED);
@@ -164,6 +174,40 @@ public class MyDeviceFragment extends Fragment{
                             }
                         }
                     });
+                }
+            }
+        });
+
+        calButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(trainingService != null && trainingService.checkDeviceConnection() == BluetoothAdapter.STATE_CONNECTED)
+                {
+                    byte[] data = new byte[1];
+                    data[0] = 2;
+                    trainingService.sendData(data);
+                }
+            }
+        });
+        calButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(trainingService != null && trainingService.checkDeviceConnection() == BluetoothAdapter.STATE_CONNECTED)
+                {
+                    byte[] data = new byte[1];
+                    data[0] = 3;
+                    trainingService.sendData(data);
+                }
+            }
+        });
+        calButton3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(trainingService != null && trainingService.checkDeviceConnection() == BluetoothAdapter.STATE_CONNECTED)
+                {
+                    byte[] data = new byte[1];
+                    data[0] = 4;
+                    trainingService.sendData(data);
                 }
             }
         });
